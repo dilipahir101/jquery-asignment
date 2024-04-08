@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slider with Animation</title>
+<style>
+    .slider {
+        width: 300px;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+    }
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+        flex: 0 0 300px;
+    }
+</style>
+</head>
+<body>
+
+<div class="slider">
+    <div class="slides">
+        <div class="slide" style="background-color: #FF5733;"></div>
+        <div class="slide" style="background-color: #C70039;"></div>
+        <div class="slide" style="background-color: #900C3F;"></div>
+        <div class="slide" style="background-color: #581845;"></div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var slideCount = $('.slide').length;
+        var slideWidth = $('.slide').width();
+        var slideHeight = $('.slide').height();
+        var sliderWidth = slideCount * slideWidth;
+
+        $('.slides').css({ width: sliderWidth });
+
+        function slideNext() {
+            $('.slides').animate({marginLeft: -slideWidth}, 1000, function(){
+                $('.slide:first').appendTo('.slides');
+                $('.slides').css('margin-left', 0);
+            });
+        }
+
+        setInterval(slideNext, 1000); // Change slide every 3 seconds
+    });
+</script>
+
+</body>
+</html>

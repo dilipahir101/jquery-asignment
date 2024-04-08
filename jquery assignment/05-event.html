@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Bubbling Example</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .outer {
+        width: 300px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border: 2px solid red;
+    }
+    .inner {
+        width: 200px;
+        padding: 20px;
+        background-color: #e0e0e0;
+        border: 2px solid red;
+    }
+</style>
+</head>
+<body>
+
+<div class="outer">
+    Outer
+    <div class="inner">
+        Inner
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $(".outer").on("click", function(){
+            console.log("Outer clicked!");
+        });
+
+        $(".inner").on("click", function(event){
+            console.log("Inner clicked!");
+            event.stopPropagation(); // Prevent event bubbling to the outer div
+        });
+    });
+</script>
+
+</body>
+</html>

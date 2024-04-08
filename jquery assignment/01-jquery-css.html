@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery CSS Manipulation</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    .highlight {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<p>This is a paragraph.</p>
+
+<script>
+$(document).ready(function(){
+    // Applying CSS using jQuery
+    $("p").css("color", "red");
+    $("p").css("font-family", "verdana");
+    $("p").css("font-size", "50px");
+    $("p").css("font-weight", "bold");
+});
+</script>
+
+</body>
+</html>
